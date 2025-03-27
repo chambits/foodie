@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "@/pages/HomePage";
-import { ThemeProvider } from "@/components/ThemeContextProvider";
+import MainLayout from "@/MainLayout";
 import RestaurantDetailsPage from "@/pages/RestaurantDetailsPage";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <MainLayout>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/restaurant/:id" element={<RestaurantDetailsPage />} />
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    </MainLayout>
   );
 }
 

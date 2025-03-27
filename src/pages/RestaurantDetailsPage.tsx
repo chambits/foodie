@@ -1,7 +1,5 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Clock, MapPin, Phone, Star, Utensils } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -12,203 +10,17 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ThemeToggle } from "@/components/ThemeToggle";
-
-const restaurants = [
-  {
-    id: 1,
-    name: "Burger Kingdom",
-    image: "/placeholder.svg?height=400&width=800",
-    rating: 4.2,
-    description: "Nicest place for burgers",
-    isNew: true,
-    categories: ["Burgers", "Comfort Food"],
-    address: "123 Main Street, Foodville",
-    hours: "9:00 AM - 10:00 PM",
-    priceRange: "$$",
-    phone: "(555) 123-4567",
-    menu: [
-      {
-        name: "Classic Burger",
-        price: 8.99,
-        description: "Beef patty with lettuce, tomato, and special sauce",
-      },
-      {
-        name: "Cheese Burger",
-        price: 9.99,
-        description: "Classic burger with American cheese",
-      },
-      {
-        name: "Bacon Burger",
-        price: 10.99,
-        description: "Classic burger with crispy bacon",
-      },
-      {
-        name: "Veggie Burger",
-        price: 8.99,
-        description: "Plant-based patty with all the fixings",
-      },
-    ],
-    reviews: [
-      {
-        author: "John D.",
-        rating: 5,
-        comment: "Best burgers in town! The special sauce is amazing.",
-      },
-      {
-        author: "Sarah M.",
-        rating: 4,
-        comment: "Great food, but can get crowded during lunch hours.",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Pizza Paradise",
-    image: "/placeholder.svg?height=400&width=800",
-    rating: 4.5,
-    description: "Authentic Italian pizzas",
-    isNew: false,
-    categories: ["Pizza", "Italian"],
-    address: "456 Flour Avenue, Foodville",
-    hours: "11:00 AM - 11:00 PM",
-    priceRange: "$$",
-    phone: "(555) 987-6543",
-    menu: [
-      {
-        name: "Margherita",
-        price: 12.99,
-        description: "Classic tomato sauce, mozzarella, and basil",
-      },
-      {
-        name: "Pepperoni",
-        price: 14.99,
-        description: "Tomato sauce, mozzarella, and pepperoni",
-      },
-      {
-        name: "Vegetarian",
-        price: 13.99,
-        description: "Tomato sauce, mozzarella, and assorted vegetables",
-      },
-      {
-        name: "Hawaiian",
-        price: 15.99,
-        description: "Tomato sauce, mozzarella, ham, and pineapple",
-      },
-    ],
-    reviews: [
-      {
-        author: "Mike R.",
-        rating: 5,
-        comment: "Authentic Italian taste. Reminds me of Naples!",
-      },
-      {
-        author: "Lisa T.",
-        rating: 4,
-        comment: "Delicious pizzas, but a bit pricey.",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Sushi Sensation",
-    image: "/placeholder.svg?height=400&width=800",
-    rating: 4.8,
-    description: "Fresh and delicious sushi",
-    isNew: true,
-    categories: ["Japanese", "Sushi"],
-    address: "789 Ocean Drive, Foodville",
-    hours: "12:00 PM - 10:00 PM",
-    priceRange: "$$$",
-    phone: "(555) 456-7890",
-    menu: [
-      {
-        name: "California Roll",
-        price: 7.99,
-        description: "Crab, avocado, and cucumber",
-      },
-      {
-        name: "Spicy Tuna Roll",
-        price: 8.99,
-        description: "Tuna and spicy mayo",
-      },
-      {
-        name: "Dragon Roll",
-        price: 12.99,
-        description: "Eel, avocado, and cucumber",
-      },
-      {
-        name: "Salmon Nigiri",
-        price: 6.99,
-        description: "Fresh salmon over rice",
-      },
-    ],
-    reviews: [
-      {
-        author: "Emma L.",
-        rating: 5,
-        comment: "The freshest sushi I've had outside of Japan!",
-      },
-      {
-        author: "David K.",
-        rating: 5,
-        comment: "Excellent quality and presentation. Worth every penny.",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Taco Temple",
-    image: "/placeholder.svg?height=400&width=800",
-    rating: 4.3,
-    description: "Authentic Mexican street food",
-    isNew: false,
-    categories: ["Mexican", "Street Food"],
-    address: "321 Spice Street, Foodville",
-    hours: "10:00 AM - 9:00 PM",
-    priceRange: "$",
-    phone: "(555) 234-5678",
-    menu: [
-      {
-        name: "Beef Taco",
-        price: 3.99,
-        description: "Seasoned beef with lettuce, cheese, and salsa",
-      },
-      {
-        name: "Chicken Taco",
-        price: 3.99,
-        description: "Grilled chicken with lettuce, cheese, and salsa",
-      },
-      {
-        name: "Fish Taco",
-        price: 4.99,
-        description: "Battered fish with slaw and lime crema",
-      },
-      {
-        name: "Veggie Taco",
-        price: 3.49,
-        description: "Grilled vegetables with guacamole and salsa",
-      },
-    ],
-    reviews: [
-      {
-        author: "Carlos R.",
-        rating: 4,
-        comment: "Authentic flavors that remind me of home.",
-      },
-      {
-        author: "Sophia W.",
-        rating: 5,
-        comment: "Best street tacos in the area. Great prices too!",
-      },
-    ],
-  },
-];
+import { ArrowLeft, Clock, MapPin, Phone, Star, Utensils } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import Image from "@/components/Image";
+import { useRestaurants } from "@/hooks/useRestaurants";
+import { getImageUrl } from "@/lib/utils";
 
 export default function RestaurantDetailsPage() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const restaurant = restaurants.find((r) => r.id === Number(id));
+  const { getRestaurantById } = useRestaurants();
+  const restaurant = getRestaurantById(Number(id));
 
   if (!restaurant) {
     return (
@@ -231,11 +43,15 @@ export default function RestaurantDetailsPage() {
             <ArrowLeft className="h-4 w-4" />
             Back to Restaurants
           </Button>
-          <ThemeToggle />
         </div>
 
         <div className="relative w-full h-64 md:h-80 mb-6 rounded-lg overflow-hidden">
-          {/* <Image src={restaurant.image || "/placeholder.svg"} alt={restaurant.name} fill className="object-cover" /> */}
+          <Image
+            src={getImageUrl("food", restaurant.image)}
+            alt={restaurant.name}
+            className="w-full h-64 md:h-80 object-cover"
+            loading="lazy"
+          />
           {restaurant.isNew && (
             <div className="absolute top-4 left-4 bg-[#e8f5c8] text-black text-sm font-medium px-3 py-1 rounded">
               new
