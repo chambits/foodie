@@ -1,3 +1,4 @@
+import Image from "@/components/Image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,12 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Clock, MapPin, Phone, Star, Utensils } from "lucide-react";
-import { useNavigate, useParams } from "react-router-dom";
-import Image from "@/components/Image";
 import { useRestaurants } from "@/hooks/useRestaurants";
 import { getImageUrl } from "@/lib/utils";
+import { ArrowLeft, Clock, MapPin, Phone, Star, Utensils } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function RestaurantDetailsPage() {
   const navigate = useNavigate();
@@ -128,7 +127,70 @@ export default function RestaurantDetailsPage() {
               </CardContent>
             </Card>
 
-            <Tabs defaultValue="menu" className="w-full">
+            {/* Menu Section */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold">Menu</h2>
+                <Badge variant="outline" className="px-3 py-1">
+                  {restaurant.menu.length} Items
+                </Badge>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {restaurant.menu.map((item, index) => (
+                  <Card key={index}>
+                    <CardHeader className="p-4 pb-2">
+                      <div className="flex justify-between items-start">
+                        <CardTitle className="text-lg">{item.name}</CardTitle>
+                        <span className="font-medium">
+                          ${item.price.toFixed(2)}
+                        </span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-4 pt-0">
+                      <p className="text-sm text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Reviews Section */}
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold">Customer Reviews</h2>
+                <Badge variant="outline" className="px-3 py-1">
+                  {restaurant.reviews.length} Reviews
+                </Badge>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {restaurant.reviews.map((review, index) => (
+                  <Card key={index}>
+                    <CardHeader className="p-4 pb-2">
+                      <div className="flex justify-between items-start">
+                        <CardTitle className="text-lg">
+                          {review.author}
+                        </CardTitle>
+                        <div className="flex items-center">
+                          <Star className="h-4 w-4 fill-current text-yellow-500 mr-1" />
+                          <span>{review.rating}</span>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-4 pt-0">
+                      <p className="text-sm text-muted-foreground">
+                        {review.comment}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* <Tabs defaultValue="menu" className="w-full">
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="menu">Menu</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews</TabsTrigger>
@@ -178,7 +240,7 @@ export default function RestaurantDetailsPage() {
                   ))}
                 </div>
               </TabsContent>
-            </Tabs>
+            </Tabs> */}
           </div>
 
           <div>
@@ -190,7 +252,9 @@ export default function RestaurantDetailsPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button className="w-full">Delivery</Button>
+                <Button variant="outline" className="w-full">
+                  Delivery
+                </Button>
                 <Button variant="outline" className="w-full">
                   Pickup
                 </Button>
