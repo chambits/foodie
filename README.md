@@ -16,7 +16,7 @@ Foodie is a restaurant discovery application built with React, Vite, and Tailwin
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/foodie.git
+   git clone https://github.com/chambits/foodie.git
    cd foodie
    ```
 
