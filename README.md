@@ -2,6 +2,8 @@
 
 Foodie is a restaurant discovery application built with React, Vite, and Tailwind CSS.
 
+![foodie](foodie.png)
+
 ## Features
 
 - Browse a list of restaurants
