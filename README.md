@@ -42,7 +42,7 @@ Foodie is a restaurant discovery application built with React, Vite, and Tailwin
 
 ## Usage
 
-- Access the app at `http://localhost:3000`
+- Access the app at `http://localhost:5173`
 - Use the theme toggle in the header to switch between light and dark modes
 - Browse restaurants and view their details
 

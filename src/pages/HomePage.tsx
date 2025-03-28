@@ -1,4 +1,4 @@
-import RestaurantCard from "@/components/RestaurantCard";
+import RestaurantCard from "@/features/restaurants/RestaurantCard";
 import { Input } from "@/components/ui/input";
 import { useRestaurants } from "@/hooks/useRestaurants";
 import { Search } from "lucide-react";
