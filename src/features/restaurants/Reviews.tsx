@@ -1,7 +1,5 @@
 import { CardContent } from "@/components/ui/card";
-
 import { CardTitle } from "@/components/ui/card";
-
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Star } from "lucide-react";
@@ -10,7 +8,7 @@ import { Review } from "@/types";
 interface ReviewProps {
   reviews: Review[];
 }
-export default function Review({ reviews }: ReviewProps) {
+export default function Reviews({ reviews }: ReviewProps) {
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
